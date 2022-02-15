@@ -9,10 +9,12 @@
   text-align: center;
   color: #000;
   font-size: 1.5rem;
+  margin: 15px 0px;
+  letter-spacing: 0.5px;
 }
 
 .addUserForm {
-  background-color: #fcfcfc;
+  background-color: #fdf6f0;
   width: 80%;
   margin: auto;
   padding: 5%;
@@ -30,17 +32,13 @@
   border: 1px solid #ccc;
 }
 
-.addUserForm input[type="submit"] {
+.addUserForm input[type='submit'] {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  background-color: blue;
+  background-color: #7f675b;
   color: #fff;
   cursor: pointer;
 }
-
-
-
-
