@@ -5,7 +5,7 @@ import Entry from "../models/entry.js";
 const router = new express.Router();
 
 // add person route
-router.post("/", async (req, res) => {
+router.post("/create", async (req, res) => {
   const id = req.body.id;
   console.log(id);
   try {

@@ -10,7 +10,7 @@ router.get("/person", async (req, res) => {
     const persons = await Person.find();
     res.status(200).json(persons);
   } catch (error) {
-    res.status(400).send(error);
+    res.status(400).json(error);
   }
 }
 );
