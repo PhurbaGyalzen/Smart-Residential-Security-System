@@ -4,6 +4,18 @@ import Person from "../models/person.js";
 
 const router = new express.Router();
 
+// show person route
+router.get("/person", async (req, res) => {
+  try {
+    const persons = await Person.find();
+    res.status(200).json(persons);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+}
+);
+
+
 // add person route
 router.post("/person", async (req, res) => {
   Person.init();
