@@ -12,9 +12,22 @@ router.get("/person", async (req, res) => {
   } catch (error) {
     res.status(400).json(error);
   }
-}
-);
+});
 
+// delete a person
+router.delete("/person/:id", async (req, res) => {
+  try {
+    const person = await Person.findByIdAndDelete(req.params.id);
+    if (!person) {
+      res.status(404).json({
+        message: "Person not found",
+      });
+    }
+    res.status(200).json(person);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
 
 // add person route
 router.post("/person", async (req, res) => {
