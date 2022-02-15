@@ -5,7 +5,7 @@ import Person from "../models/person.js";
 const router = new express.Router();
 
 // add person route
-router.post("/person/create", async (req, res) => {
+router.post("/person", async (req, res) => {
   Person.init();
   const id = req.body.id;
   const name = req.body.name;
@@ -15,7 +15,7 @@ router.post("/person/create", async (req, res) => {
     person._id = id;
     person.name = name;
     await person.save();
-    res.status(201).send(person);
+    res.status(201).json(person);
   } catch (error) {
     res.status(400).send(error);
   }
