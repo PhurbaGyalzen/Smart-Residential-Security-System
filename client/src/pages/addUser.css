@@ -1,0 +1,46 @@
+.addUserContainer {
+  width: 90%;
+  padding: 5%;
+  margin: 5%;
+  margin: auto;
+}
+
+.addUserContainer h1 {
+  text-align: center;
+  color: #000;
+  font-size: 1.5rem;
+}
+
+.addUserForm {
+  background-color: #fcfcfc;
+  width: 80%;
+  margin: auto;
+  padding: 5%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.addUserForm input,
+.addUserForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.addUserForm input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: blue;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+
+
