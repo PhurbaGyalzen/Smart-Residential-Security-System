@@ -1,5 +1,5 @@
 import React from 'react';
-import Parking from './parking';
+import Fence from './fence';
 import Entry from './entry';
 import Smoke from './smoke';
 import User from './user';
@@ -15,8 +15,8 @@ const Home = () => {
       </div>
 
       {/* Parking */}
-      <div className='parkingContainer'>
-        <Parking />
+      <div className='fenceContainer'>
+        <Fence />
       </div>
 
       {/* Entry */}
