@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { getAllFiles } from '../axiosData';
 
-const Parking = () => {
-  const [parking, setParking] = useState([]);
+const Fence = () => {
+  const [fence, setFence] = useState([]);
 
   const getSingleFileslist = async () => {
-    let url = 'person';
+    let url = 'fence';
     try {
       const fileslist = await getAllFiles(url);
-      setParking(fileslist.data);
-      console.log('smoke', parking);
+      setFence(fileslist.data);
+      console.log('fence', fence);
     } catch (error) {
       console.log(error);
     }
@@ -22,23 +22,19 @@ const Parking = () => {
   return (
     <>
       <div className='totalParkingContainer'>
-        <h3>Total Parked User</h3>
+        <h3>Fence data</h3>
         <table>
           <thead>
             <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
-            {parking.map((data) => {
-              const { _id, name } = data;
+            {fence.map((data) => {
+              const { _id, date } = data;
               return (
                 <tr key={_id}>
-                  <td>{_id}</td>
-                  <td>{name}</td>
+                  <td>{date}</td>
                   <td>
                     <i className='fa-solid fa-pen-to-square'></i>
                   </td>
@@ -55,4 +51,4 @@ const Parking = () => {
   );
 };
 
-export default Parking;
+export default Fence;
