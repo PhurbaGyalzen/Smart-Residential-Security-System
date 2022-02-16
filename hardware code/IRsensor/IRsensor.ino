@@ -1,5 +1,6 @@
 
 int irSensor = 14; // D5
+int buzzer = 16; //D0
 #include <ESP8266Webhook.h>
 #include <ESP8266WiFi.h>
 
@@ -46,6 +47,15 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   if (digitalRead(irSensor) == HIGH){
+    tone(buzzer, 1000, 200);
+    delay(1000);
+    noTone(buzzer);
+    tone(buzzer, 1000, 200);
+    delay(1000);
+    noTone(buzzer);
+    tone(buzzer, 1000, 200);
+    delay(1000);
+    noTone(buzzer);
     delay(1000);
     Serial.println("Object Deteced");
     WiFiClient client;
@@ -87,5 +97,7 @@ void loop() {
   } else {
     Serial.println("Object not Deteced");
   }
+
+  noTone(buzzer);
 
 }
