@@ -151,8 +151,8 @@ uint8_t getFingerprintID() {
   // found a match!
   Serial.print("Found ID #"); Serial.print(finger.fingerID); 
   Serial.print(" with confidence of "); Serial.println(finger.confidence); 
-  servo.write(150);
-  delay(1000);
+  servo.write(180);
+  delay(2000);
   servo.write(0);
   delay(1000);
 

@@ -7,6 +7,7 @@ import morgan from "morgan";
 import personRoute from "./routes/person_route.js";
 import entryRoute from "./routes/entry_routes.js";
 import smokeRoute from "./routes/smoke_routes.js";
+import fenceRoute from "./routes/fence_routes.js";
 
 dotenv.config(); // load .env file
 
@@ -22,6 +23,7 @@ server.use(morgan("dev")); // for logging
 server.use("/", personRoute);
 server.use("/entry/", entryRoute);
 server.use("/smoke/", smokeRoute);
+server.use("/fence/", fenceRoute);
 server.get("/", (req, res) => {
   res.send("Welcome to learn backend with express!");
 });
