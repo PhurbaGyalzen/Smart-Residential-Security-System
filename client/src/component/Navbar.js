@@ -20,16 +20,14 @@ const Navbar = () => {
       <nav>
         <ul className='nav-list'>
           <li className='nav-list-item'>
-            <i class='fa-solid fa-house'></i>
-            <Link to='/' className='nav-link' onClick={handleClick}>
-              Dashboard
+            <Link to='/'>
+              <i className='fa-solid fa-house fa-2x'></i>
             </Link>
           </li>
 
-          <li className='nav-list-item'>
-            <i class='fa-solid fa-user-plus'></i>
-            <Link to='/addUser' className='nav-link' onClick={handleClick}>
-              Add Person
+          <li className='nav-list-item fa-2x'>
+            <Link to='/addUser'>
+              <i className='fa-solid fa-user-plus'></i>
             </Link>
           </li>
         </ul>

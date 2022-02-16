@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import { addFile } from '../axiosData';
 
 import './addUser.css';
 
 // add blog component
 const AddUser = () => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [id, setId] = useState(1);
+  const [name, setName] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('description', description);
+    const payload = {
+      id: parseInt(id),
+      name: name,
+    };
     const url = 'person';
-    console.log(formData.values());
     try {
-      const response = await addFile(formData, url);
-      setTitle('');
-      setDescription('');
+      const response = await addFile(payload, url);
+      console.log(response);
+      if (response.status === 201) {
+        window.alert(
+          `${response.data.name} added successfully with id ${response.data._id}`
+        );
+      } else if (response.status === 400) {
+        window.alert(`A user with this id already exists`);
+      }
+      setId('');
+      setName('');
 
       console.log(response);
     } catch (error) {
@@ -29,24 +36,25 @@ const AddUser = () => {
 
   return (
     <div className='addUserContainer'>
-      <h1>Add User</h1>
+      <h1>Add New User</h1>
       <div className='addUserForm'>
         <form onSubmit={handleSubmit}>
           <input
-            type='text'
-            name='title'
+            type='number'
+            name='id'
             placeholder='Add User Id'
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={id}
+            onChange={(e) => setId(e.target.value)}
             required
+            min='1'
           />
           <textarea
-            name='description'
+            name='name'
             rows='4'
             cols='50'
             placeholder='Add User Name'
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
 

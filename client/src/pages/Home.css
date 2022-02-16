@@ -1,0 +1,72 @@
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th {
+  color: grey;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  letter-spacing: 0.5px;
+}
+
+td .fa-pen-to-square {
+  color: green;
+  cursor: pointer;
+}
+
+td .fa-trash-can {
+  color: red;
+  cursor: pointer;
+}
+
+tr:nth-child(even) {
+  background-color: #f8e2cf;
+}
+
+.totalParkingContainer h3,
+.totalEntryContainer h3,
+.totalSmokeContainer h3,
+.totalUserContainer h3 {
+  color: #000;
+  font-size: 1.5rem;
+  margin: 15px 0px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.totalParkingContainer,
+.totalEntryContainer,
+.totalSmokeContainer,
+.totalUserContainer {
+  width: 100%;
+  height: 70vh;
+  background-color: #fdf6f0;
+  padding: 10px 20px;
+  border-radius: 15px;
+  overflow: auto;
+}
+
+/* Home Page  */
+.homeContainer {
+  width: 95%;
+  height: auto;
+  padding: 2%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-gap: 20px;
+  background-color: #fff;
+}
+
+/* media queries */
+@media screen and (max-width: 600px) {
+  .homeContainer {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
