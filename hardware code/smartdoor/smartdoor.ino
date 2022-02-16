@@ -23,6 +23,8 @@ SoftwareSerial mySerial(13, 15);
 #define STAPSK  "CLB2723319"
 #endif
 
+int buzzer = 16; //  D0
+
 
 Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
 
@@ -151,6 +153,9 @@ uint8_t getFingerprintID() {
   // found a match!
   Serial.print("Found ID #"); Serial.print(finger.fingerID); 
   Serial.print(" with confidence of "); Serial.println(finger.confidence); 
+  tone(buzzer, 1000, 200);
+    delay(1000);
+    noTone(buzzer);
   servo.write(180);
   delay(2000);
   servo.write(0);
