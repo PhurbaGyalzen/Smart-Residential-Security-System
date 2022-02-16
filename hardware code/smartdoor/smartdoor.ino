@@ -12,7 +12,7 @@ SoftwareSerial mySerial(13, 15);
 #define mySerial Serial1
 
 #endif
-
+#include <ESP8266Webhook.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 
@@ -27,6 +27,10 @@ int buzzer = 16; //  D0
 
 
 Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
+#define KEY "b765VWF1Xppm3NF_7IDMgw" 
+#define EVENT "doorunlocked"      // Webhooks Event Name
+
+Webhook webhook(KEY, EVENT);    // Create an object.
 
 void setup()  
 {
@@ -174,6 +178,14 @@ uint8_t getFingerprintID() {
     Serial.print("[HTTP] POST...\n");
     // start connection and send HTTP header and body
     int httpCode = http.POST(("{\"id\": " + String(finger.fingerID) + "}"));
+
+    // trigger ifttt webhook event
+  int response = webhook.trigger(String(finger.fingerID));
+  if(response == 200)
+    Serial.println("OK");
+  else
+    Serial.println("Failed");
+
 
     // httpCode will be negative on error
     if (httpCode > 0) {
