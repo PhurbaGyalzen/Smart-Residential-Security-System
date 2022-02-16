@@ -46,18 +46,19 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if (digitalRead(irSensor) == HIGH){
-    tone(buzzer, 1000, 200);
-    delay(1000);
-    noTone(buzzer);
-    tone(buzzer, 1000, 200);
-    delay(1000);
-    noTone(buzzer);
-    tone(buzzer, 1000, 200);
-    delay(1000);
-    noTone(buzzer);
-    delay(1000);
+  if (digitalRead(irSensor) == LOW){
     Serial.println("Object Deteced");
+    tone(buzzer, 1000, 200);
+    delay(1000);
+    noTone(buzzer);
+    tone(buzzer, 1000, 200);
+    delay(1000);
+    noTone(buzzer);
+    tone(buzzer, 1000, 200);
+    delay(1000);
+    noTone(buzzer);
+    delay(1000);
+    
     WiFiClient client;
     HTTPClient http;
 
